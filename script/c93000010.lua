@@ -27,7 +27,7 @@ function s.flipop(e,tp,eg,ep,ev,re,r,rp)
 	local labels={}
 	for i,code in ipairs(options) do
 		-- check existence + is able to hand
-		if Duel.IsExistingMatchingCard(function(c) return c:IsCode(code) and c:IsAbleToHand() end, tp, LOCATION_DECK+LOCATION_GRAVE, 0, 1, nil) then
+		if Duel.IsExistingMatchingCard(function(c) return c:IsCode(code) and c:IsAbleToHand() end, tp, LOCATION_DECK, 0, 1, nil) then
 			table.insert(availCodes, code)
 			-- pick a string id slot for the label; ensure you have these strings in your localization
 			table.insert(labels, aux.Stringid(id, i-1))
@@ -45,7 +45,7 @@ function s.flipop(e,tp,eg,ep,ev,re,r,rp)
 
 	-- actually select the card from Deck/GY and add it to hand
 	local addg=Duel.SelectMatchingCard(tp, function(c) return c:IsCode(chosenCode) and c:IsAbleToHand() end,
-		tp, LOCATION_DECK+LOCATION_GRAVE, 0, 1, 1, nil)
+		tp, LOCATION_DECK, 0, 1, 1, nil)
 	if #addg==0 then return end
 	local added = addg:GetFirst()
 	Duel.SendtoHand(added, nil, REASON_EFFECT)
@@ -95,3 +95,4 @@ function s.splimit(code)
 				return c and c:GetCode()~=code
 			end
 end
+
