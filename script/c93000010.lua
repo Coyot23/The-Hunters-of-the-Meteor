@@ -6,7 +6,7 @@ function s.initial_effect(c)
 end
 
 function s.flipcon(e,tp,eg,ep,ev,re,r,rp)
-	if Duel.GetFlagEffect(ep,id)>1 then return end
+	if Duel.GetFlagEffect(ep,id)>0 then return end
 	return aux.CanActivateSkill(tp)  
 		and Duel.GetFieldGroupCount(tp,LOCATION_HAND,0)>=4
 end
@@ -95,4 +95,5 @@ function s.splimit(code)
 				return c and c:GetCode()~=code
 			end
 end
+
 
