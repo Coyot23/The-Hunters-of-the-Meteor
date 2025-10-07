@@ -50,6 +50,7 @@ function s.flipop(e,tp,eg,ep,ev,re,r,rp)
 	local added = addg:GetFirst()
 	Duel.SendtoHand(added, nil, REASON_EFFECT)
 	Duel.ConfirmCards(1-tp, added)
+	Duel.ShuffleDeck(tp)
 
 	-- summon 3 tokens (Tellus Wing Token = 19280590)
 	local token_code = 19280590
@@ -95,5 +96,6 @@ function s.splimit(code)
 				return c and c:GetCode()~=code
 			end
 end
+
 
 
