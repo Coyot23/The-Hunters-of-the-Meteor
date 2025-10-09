@@ -245,7 +245,7 @@ function s.atkop(e,tp,eg,ep,ev,re,r,rp)
 	e1:SetType(EFFECT_TYPE_SINGLE)
 	e1:SetCode(EFFECT_UPDATE_ATTACK)
 	e1:SetValue(-atk)
-	e1:SetReset(RESETS_STANDARD_PHASE_END)
+--	e1:SetReset(RESETS_STANDARD_PHASE_END)
 	c:RegisterEffect(e1)
 	end
 function s.cond1(e,tp,eg,ep,ev,re,r,rp)
@@ -561,4 +561,5 @@ function s.val(e,c)
 end
 function s.val2(e,c)
 	return math.floor(Duel.GetLP(e:GetHandlerPlayer())/2)
+
 end
